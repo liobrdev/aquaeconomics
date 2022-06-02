@@ -31,7 +31,6 @@ class RootComponent extends Component<Props> {
     window.addEventListener('keydown', this.handleEsc);
     window.addEventListener('resize', this.setAppHeight);
     this.setAppHeight();
-    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps: Props) {
