@@ -69,7 +69,6 @@ export default function ContactForm() {
             onChange={handleInput()}
             placeholder='Jane'
             required
-            autoFocus
           />
           {error?.first_name?.map(e => (
             <p key={e.id} className='ContactForm-error'>{e.msg}</p>
