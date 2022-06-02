@@ -1,9 +1,9 @@
 # api
 __pycache__/
 *.py[cod]
-/api
 # api/.env
 # api/secrets
+/api
 
 # certbot
 /certbot
