@@ -1,0 +1,15 @@
+.Page--legal {
+  .LegalText {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    padding: 150px 0 50px;
+    font-family: $fontTertiary;
+    font-size: 18px;
+
+    h1 {
+      color: $cerulean;
+      letter-spacing: 2px;
+    }
+  }
+}

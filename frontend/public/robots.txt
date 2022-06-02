@@ -1,0 +1,6 @@
+user-agent: *
+disallow: /api
+disallow: /account
+disallow: /dashboard
+disallow: /forgot_password
+disallow: /reset_password
