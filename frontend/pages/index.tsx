@@ -42,11 +42,10 @@ class Home extends Component<Props> {
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
-                Stormwater cost analysis, site engineering, and
-                surveying for Philadelphia and
+                Site civil engineering and land surveying for Philadelphia and
                 the Delaware Valley.
               </h1>
-              <h2>We help you save time and money.</h2>
+              <h2>We drive solutions and savings.</h2>
             </div>
           </section>
           <section className='Section Section--welcome'>
