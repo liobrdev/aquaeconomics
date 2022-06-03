@@ -39,6 +39,7 @@ class Home extends Component<Props> {
         </Head>
         <main className='Page Page--home'>
           <section className='Section Section--intro'>
+            <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
                 Stormwater cost analysis, site engineering, and
