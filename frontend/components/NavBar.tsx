@@ -42,7 +42,7 @@ class NavBar extends Component<Props, State> {
 
     if (
       this.state.banner
-      && currentScrollPos < this.state.banner.clientHeight - 100
+      && currentScrollPos < this.state.banner.clientHeight - 130
     ) {
       this.setState({ isPastBanner: false });
     } else {
