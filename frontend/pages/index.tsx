@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEvent } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 
 import Head from 'next/head';
@@ -12,6 +12,17 @@ import { AppState, IBreadcrumbListItem } from '@/types';
 const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
 
 class Home extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    const welcome = document.getElementById('welcome');
+    if (welcome) scrollTo({ top: welcome.offsetTop, behavior: 'smooth' });
+  }
+
   render() {
     const breadcrumbList: IBreadcrumbListItem[] = [
       {
@@ -38,7 +49,7 @@ class Home extends Component<Props> {
           <script type="application/ld+json">{breadcrumb}</script>
         </Head>
         <main className='Page Page--home'>
-          <section className='Section Section--intro'>
+          <section className='Section Section--intro' id='home-banner'>
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
@@ -47,8 +58,9 @@ class Home extends Component<Props> {
               </h1>
               <h2>We drive solutions and savings.</h2>
             </div>
+            <button className='ScrollArrow' onClick={this.handleClick} />
           </section>
-          <section className='Section Section--welcome'>
+          <section className='Section Section--welcome' id='welcome'>
             <div className='Welcome'>
               <h2>
                 Let Aqua Economics be <b>your</b> advocate

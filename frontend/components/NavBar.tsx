@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import throttle from 'lodash/throttle';
 
 import Link from 'next/link';
+import { NextRouter, withRouter } from 'next/router';
 
 import { NavigationIcon, NavigationMain } from '@/components';
 import { AppState } from '@/types';
@@ -16,7 +17,13 @@ let prevScrollPos = 0;
 class NavBar extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { isHidden: false };
+
+    this.state = {
+      banner: null,
+      isHidden: false,
+      isPastBanner: false,
+    };
+
     this.onScroll = throttle(this.onScroll.bind(this), 200, {
       leading: true,
     });
@@ -27,18 +34,48 @@ class NavBar extends Component<Props, State> {
 
     const currentScrollPos = getScrollY();
 
-    if (currentScrollPos < prevScrollPos || currentScrollPos === 0) {
+    if (currentScrollPos < prevScrollPos) {
       this.setState({ isHidden: false });
     } else {
       this.setState({ isHidden: true });
     }
 
+    if (
+      this.state.banner
+      && currentScrollPos < this.state.banner.clientHeight - 100
+    ) {
+      this.setState({ isPastBanner: false });
+    } else {
+      this.setState({ isPastBanner: true });
+    }
+
     prevScrollPos = currentScrollPos;
+  }
+
+  setBanner() {
+    let name = this.props.router.pathname;
+
+    if (name === '/') name = 'home';
+    else name = name.slice(1);
+
+    this.setState({
+      banner: document.getElementById(`${name}-banner`),
+    }, () => {
+      if (!this.state.banner) this.setState({ isPastBanner: true });
+      else this.setState({ isPastBanner: false });
+    });
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
+    this.setBanner();
     prevScrollPos = getScrollY();
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.router.pathname !== prevProps.router.pathname) {
+      this.setBanner();
+    }
   }
 
   componentWillUnmount() {
@@ -47,7 +84,13 @@ class NavBar extends Component<Props, State> {
 
   render() {
     return (
-      <nav className={`NavBar${this.state.isHidden ? ' is-hidden' : ''}`}>
+      <nav
+        className={`NavBar${
+          this.state.isHidden ? ' is-hidden' : ''
+        }${
+          this.state.isPastBanner ? ' is-pastBanner' : ''
+        }`}
+      >
         <div className='Logo'>
           <Link href={{ pathname: '/' }}>
             <a>
@@ -72,10 +115,16 @@ const mapStateToProps = (state: AppState) => ({
 
 const connector = connect(mapStateToProps);
 
-type Props = ConnectedProps<typeof connector>;
+type PropsFromRedux = ConnectedProps<typeof connector>;
 
-interface State {
-  isHidden: boolean;
+interface Props extends PropsFromRedux {
+  router: NextRouter;
 }
 
-export default connector(NavBar);
+interface State {
+  banner: HTMLElement | null;
+  isHidden: boolean;
+  isPastBanner: boolean;
+}
+
+export default connector(withRouter(NavBar));

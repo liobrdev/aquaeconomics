@@ -7,13 +7,32 @@
   height: 100px;
   overflow: hidden;
   align-items: center;
-  box-shadow: 0 1px 15px -7px #E0E0E0;
-  border-bottom: 1px solid #E0E0E0;
-  background: white;
   -webkit-transition: all 0.1s linear;
      -moz-transition: all 0.1s linear;
        -o-transition: all 0.1s linear;
           transition: all 0.1s linear;
+
+  &.is-pastBanner {
+    box-shadow: 0 1px 15px -7px #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    background: white;
+
+    .MenuIcon {
+      &:focus {
+        outline: $cerulean dashed 1px;
+      }
+
+      .MenuIcon-icon-line {
+        background-color: $cerulean;
+      }
+
+      &.is-active {
+        .MenuIcon-icon-line {
+          background-color: white;
+        }
+      }
+    }
+  }
 
   &.is-hidden {
     height: 0;

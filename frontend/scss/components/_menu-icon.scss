@@ -15,7 +15,7 @@ $translateX: 0;
   height: $width-line + 6px;
 
   &:focus {
-    outline: $cerulean dashed 1px;
+    outline: white dashed 1px;
   }
 
   &:hover,
@@ -47,7 +47,7 @@ $translateX: 0;
     
     &-line {
       display: block;
-      background-color: $cerulean;
+      background-color: white;
       width: $width-line;
       height: $height-line;
       position: absolute;
