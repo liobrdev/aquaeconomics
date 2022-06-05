@@ -53,39 +53,32 @@ class Home extends Component<Props> {
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
-                Site civil engineering and land surveying for Philadelphia and
+                Site civil engineering and surveying for Philadelphia and
                 the Delaware Valley.
               </h1>
               <h2>We drive solutions and savings.</h2>
             </div>
-            <button className='ScrollArrow' onClick={this.handleClick} />
           </section>
           <section className='Section Section--welcome' id='welcome'>
             <div className='Welcome'>
-              <h2>
-                Let Aqua Economics be <b>your</b> advocate
-                with the City of Philadelphia
-              </h2>
+              <div className='Welcome-title'>How we work</div>
               <h3>
-                <p>
-                  We can design and shepherd all your land surveying,
-                  consolidation, building and stormwater projects.
-                </p>
-                <p>
-                  <Link
-                    href="http://www.aquaeconomics.com/download/DevProcess.png"
-                  >
-                    <a target="popup">
-                      The development process in Philadelphia is quite complex
-                    </a>
-                  </Link>
-                  &nbsp;&mdash;&nbsp;yet, after 36 years of surveying for and within the
-                  City, we know how the system works.
-                </p>
-                <p>
-                  We solve problems <b>before</b> they occur.
-                </p>
+                <b>Aqua</b> can design and shepherd all of your land and site
+                development projects.
               </h3>
+              <p>
+                With more than 40 years of civil engineering experience
+                in the Philadelphia area, we know what works. Our experts
+                have delivered solutions for a wide variety of clients meeting
+                diverse goals in site planning and development, surveying,
+                stormwater management, zoning and municipal relations.
+              </p>
+              <p>
+                We specialize in solving problems <b>before</b> they occur.
+              </p>
+              <Link href={{ pathname: '/about' }}>
+                <a>Learn more &#8594;</a>
+              </Link>
             </div>
           </section>
           <section className='Section Section--services'>

@@ -87,43 +87,55 @@
 
     &--welcome {
       .Welcome {
-        background-color: $cerulean;
-        padding: 60px 40px 40px;
         width: 90%;
-        margin: 20% auto 0;
-        border-radius: 8px;
-        box-shadow: 1px 1px 6px 2px #24157133;
-        color: white;
+        margin: 20px auto;
         max-width: 768px;
+        font-family: $fontPrimary;
 
-        h2 {
-          font-family: $fontTertiary;
-          font-weight: 700;
-          font-size: 32px;
-          letter-spacing: 4px;
+        &-title {
           text-transform: uppercase;
+          font-size: 19px;
+          font-weight: 300;
+          letter-spacing: 3px;
+          margin-bottom: 30px;
         }
-        
-        h3 {
-          margin-top: 35px;
-          font-family: $fontTertiary;
-          font-size: 22px;
-          font-weight: 600;
-          letter-spacing: 1px;
-          line-height: 35px;
 
-          a {
-            color: $lightgreen;
-            font-weight: 600;
+        h3 {
+          font-family: $fontQuaternary;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 40px;
+          letter-spacing: 2px;
+
+          b {
+            color: $cerulean;
           }
         }
+        
+        p {
+          margin: 40px auto;
+          font-size: 21px;
+          font-weight: 300;
+          letter-spacing: 2px;
+          line-height: 30px;
+        }
 
-        @include for-tablet-portrait-up {
-          width: 70%;
-          padding: 80px 60px 60px;
+        a {
+          margin: 30px auto;
+          color: black;
+          font-size: 19px;
+          font-weight: 300;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          -webkit-transition: all 0.1s linear;
+             -moz-transition: all 0.1s linear;
+               -o-transition: all 0.1s linear;
+                  transition: all 0.1s linear;
 
-          h2 {
-            font-size: 36px;
+          &:focus,
+          &:hover {
+            color: $cerulean;
+            letter-spacing: 3px;
           }
         }
       }
