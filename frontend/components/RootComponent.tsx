@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
+import throttle from 'lodash/throttle';
 
 import Head from 'next/head';
 import { NextRouter, withRouter } from 'next/router';
@@ -17,20 +18,37 @@ class RootComponent extends Component<Props> {
   constructor(props: Props) {
     super(props);
     this.handleEsc = this.handleEsc.bind(this);
+    this.handleResize = throttle(this.handleResize.bind(this), 200, {
+      leading: true,
+    });
   }
 
   handleEsc(e: KeyboardEvent) {
     if (e.code === 'Escape') this.props.closeNavigation();
   }
 
-  setAppHeight() {
+  handleResize() {
     document.body.style.height = window.innerHeight + 'px';
+    
+    if (this.props.router.pathname === '/') {
+      const image = (
+        document.getElementById('homeServicesImg') as HTMLImageElement | null
+      );
+
+      if (image) {
+        if (!window.matchMedia('(min-width: 600px)').matches) {
+          image.style.left = `${(window.innerWidth - image.width) / 2}px`;
+        } else {
+          image.style.left = '';
+        }
+      }
+    }
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleEsc);
-    window.addEventListener('resize', this.setAppHeight);
-    this.setAppHeight();
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -41,7 +59,7 @@ class RootComponent extends Component<Props> {
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleEsc);
-    window.removeEventListener('resize', this.setAppHeight);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {

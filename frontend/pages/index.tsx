@@ -53,8 +53,8 @@ class Home extends Component<Props> {
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
-                Site civil engineering and surveying for Philadelphia and
-                the Delaware Valley.
+                Comprehensive civil engineering and surveying
+                for Philadelphia and the Delaware Valley.
               </h1>
               <h2>We drive solutions and savings.</h2>
             </div>
@@ -72,8 +72,8 @@ class Home extends Component<Props> {
                 have delivered solutions for a wide variety of clients meeting
                 diverse goals in site planning and development, surveying,
                 stormwater management, zoning and municipal relations.
-              </p>
-              <p>
+                <br/>
+                <br/>
                 We specialize in solving problems <b>before</b> they occur.
               </p>
               <Link href={{ pathname: '/about' }}>
@@ -82,108 +82,61 @@ class Home extends Component<Props> {
             </div>
           </section>
           <section className='Section Section--services'>
+            <div className='Services-background'>
+              <img
+                id='homeServicesImg'
+                src={`${imagesUrl}/construction-blueprints.jpg`}
+              />
+            </div>
             <div className='Services'>
-              <h2>Our Services</h2>
-              <h3>We offer a complete civil engineering package</h3>
-              <div className='Service'>
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>
-                      Free water billing analysis to reduce your
-                      stormwater bill
-                    </h4>
-                    <Link href={{ pathname: '/stormwater' }}>
-                      <a>Learn more</a>
-                    </Link>
+              <div className='Services-text'>
+                <div className='Services-text-title'>Our services</div>
+                <h3>
+                  Excellence and experience for an array of
+                  civil engineering goals
+                </h3>
+              </div>
+              <div className='Services-container'>
+                <div className='Service'>
+                  <img
+                    className='Service-icon'
+                    src={`${imagesUrl}/stormwater.png`}
+                    alt='stormwater'
+                    width='64px'
+                  />
+                  <div className='Service-text'>
+                    <div className='Service-text-container'>
+                      <h4>Site Civil Engineering</h4>
+                      <p>
+                        Embracing all aspects of development, from site
+                        evaluation and design, to permitting and construction
+                        management
+                      </p>
+                      <Link href={{ pathname: '/civil_engineering' }}>
+                        <a>Learn more &#8594;</a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/stormwater.png`}
-                  alt='stormwater'
-                />
-              </div>
-              <div className='Service'>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/engineering.png`}
-                  alt='engineering'
-                />
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>
-                      Site engineering and design plans for new construction
-                    </h4>
-                    <Link href={{ pathname: '/engineering' }}>
-                      <a>Learn more</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className='Service'>
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>Land and site surveying for cost benefit analysis</h4>
-                    <Link href={{ pathname: '/surveying' }}>
-                      <a>Learn more</a>
-                    </Link>
-                  </div>
-                </div>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/surveying.png`}
-                  alt='surveying'
-                />
-              </div>
-              <div className='Service'>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/ersa.png`}
-                  alt='ersa'
-                />
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>
-                      Existing Resources and Site Analysis &#40;ERSA&#41;
-                      &mdash;&nbsp;required when building in the
-                      City of Philadelphia over 5,000 square feet
-                    </h4>
-                    <Link href={{ pathname: '/ersa_plans' }}>
-                      <a>Learn more</a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className='Service'>
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>
-                      Zoning and subdivision plans &amp; permits in accordance
-                      with City codes
-                    </h4>
-                    <Link href={{ pathname: '/zoning' }}>
-                      <a>Learn more</a>
-                    </Link>
-                  </div>
-                </div>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/zoning.png`}
-                  alt='zoning'
-                />
-              </div>
-              <div className='Service'>
-                <img
-                  className='Service-icon'
-                  src={`${imagesUrl}/consulting.png`}
-                  alt='consulting'
-                />
-                <div className='Service-text'>
-                  <div className='Service-text-container'>
-                    <h4>Due diligence consulting services</h4>
-                    <Link href={{ pathname: '/consulting' }}>
-                      <a>Learn more</a>
-                    </Link>
+                <div className='Service'>
+                  <img
+                    className='Service-icon'
+                    src={`${imagesUrl}/engineering.png`}
+                    alt='engineering'
+                    width='64px'
+                  />
+                  <div className='Service-text'>
+                    <div className='Service-text-container'>
+                      <h4>Land &amp; Site Surveying</h4>
+                      <p>
+                        Distinctly accurate surveying and mapping in service
+                        of efficient and cost-effective due diligence and
+                        analysis
+                      </p>
+                      <Link href={{ pathname: '/surveying' }}>
+                        <a>Learn more &#8594;</a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
