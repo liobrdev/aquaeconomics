@@ -43,8 +43,8 @@ class Home extends Component<Props> {
       <>
         <Head>
           <title>
-            Aqua Economics &amp; Engineering &mdash; Cost reduction, surveying,
-            zoning, and business development in the Philadelphia area
+            Aqua Economics &amp; Engineering &mdash; Site civil engineering,
+            surveying, and consulting services in the Greater Philadelphia area
           </title>
           <script type="application/ld+json">{breadcrumb}</script>
         </Head>
@@ -61,7 +61,6 @@ class Home extends Component<Props> {
           </section>
           <section className='Section Section--welcome' id='welcome'>
             <div className='Welcome'>
-              <div className='Welcome-title'>How we work</div>
               <h3>
                 <b>Aqua</b> can design and shepherd all of your land and site
                 development projects.
