@@ -100,7 +100,7 @@ class Home extends Component<Props> {
                 <div className='Service'>
                   <img
                     className='Service-icon'
-                    src={`${imagesUrl}/stormwater.png`}
+                    src={`${imagesUrl}/engineering.png`}
                     alt='stormwater'
                     width='64px'
                   />
@@ -121,7 +121,7 @@ class Home extends Component<Props> {
                 <div className='Service'>
                   <img
                     className='Service-icon'
-                    src={`${imagesUrl}/engineering.png`}
+                    src={`${imagesUrl}/surveying.png`}
                     alt='engineering'
                     width='64px'
                   />
