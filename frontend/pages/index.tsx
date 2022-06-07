@@ -92,7 +92,7 @@ class Home extends Component<Props> {
                 <div className='Services-text-title'>Our services</div>
                 <h3>
                   Excellence and experience for an array of
-                  civil engineering goals
+                  civil engineering goals.
                 </h3>
               </div>
               <div className='Services-container'>
@@ -174,34 +174,34 @@ class Home extends Component<Props> {
           </section>
           <section className='Section Section--contact' id='contact'>
             <div className='Contact'>
-              <h2>Get started</h2>
-              <h3>Leave a message and let us know how we can help</h3>
-              <div className='Contact-content'>
-                <div className='Contact-info'>
-                  <div className='Contact-info-text'>
-                    <h4>Contact us</h4>
-                    <h5>
-                      Complete the form and our team will get back to you
-                      ASAP, or find us at:
-                    </h5>
-                    <div className='Contact-info-text-phone'>
-                      {/* <img /> */}
-                      <p>+1 267 885 9875</p>
-                    </div>
-                    <div className='Contact-info-text-email'>
-                      {/* <img /> */}
-                      <p>info@aquaeconomics.com</p>
-                    </div>
-                    <div className='Contact-info-text-address'>
-                      {/* <img /> */}
-                      <p>Aqua Economics &amp; Engineering</p>
-                      <p>1391 Walton Road</p>
-                      <p>Blue Bell, PA 19422</p>
-                    </div>
+              <div className='Contact-info'>
+                <div className='Contact-info-text'>
+                  <h3>Leave a message and get help <b>today!</b></h3>
+                  <h4>
+                    Complete the form, or reach us at:
+                  </h4>
+                  <div className='Contact-info-text-email'>
+                    <p>
+                      <Link href='mailto:info@aquaeconomics.com'>
+                        <a>info@aquaeconomics.com</a>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className='Contact-info-text-phone'>
+                    <p>
+                      <Link href='tel:+12678859875'>
+                        <a>267.885.9875</a>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className='Contact-info-text-address'>
+                    <p>Aqua Economics &amp; Engineering</p>
+                    <p>1391 Walton Road</p>
+                    <p>Blue Bell, PA 19422</p>
                   </div>
                 </div>
-                <ContactForm />
               </div>
+              <ContactForm />
             </div>
           </section>
         </main>
