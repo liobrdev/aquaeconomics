@@ -142,31 +142,30 @@ class Home extends Component<Props> {
             </div>
           </section>
           <section className='Section Section--testimonials'>
-            <div className='Testimonials-underlay' />
             <div className='Testimonials-content'>
               <div className='Testimonials-intro'>
-                <h2>What our community is saying...</h2>
+                <h3>What <b>Aqua</b> clients are saying...</h3>
               </div>
               <div className='Testimonials'>
                 <div className='Testimonial'>
                   <div className='Testimonial-text'>
-                    <h4>
+                    <p>
                       <q>
                         Aqua Economics saved us $9,000 a month on
-                        several of our properties
+                        several of our properties.
                       </q>
-                    </h4>
+                    </p>
                     <p>&mdash; Richmond Management and clients along Delaware River</p>
                   </div>
                 </div>
                 <div className='Testimonial'>
                   <div className='Testimonial-text'>
-                    <h4>
+                    <p>
                       <q>
                         We saved over $129,000 on our stormwater bill thanks to
-                        Aqua Economics &amp; Engineering
+                        Aqua Economics &amp; Engineering.
                       </q>
-                    </h4>
+                    </p>
                     <p>&mdash; STS Warehousing &amp; Trucking</p>
                   </div>
                 </div>

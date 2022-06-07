@@ -293,8 +293,6 @@
       }
 
       @include for-tablet-landscape-up {
-        margin-bottom: 30px;
-
         .Services {
           &-text {
             h3 {
@@ -303,11 +301,7 @@
               margin-bottom: 60px;
             }
           }
-        }
-      }
 
-      @include for-tablet-landscape-up {
-        .Services {
           &-container {
             .Service {
               max-width: 456px;
@@ -328,24 +322,9 @@
     }
 
     &--testimonials {
-      min-height: 512px;
-
-      .Testimonials-underlay {
-        background: $cerulean;
-        background: linear-gradient($cerulean, white);
-        z-index: -1;
-        position: absolute;
-        top: 0px;
-        left: -50%;
-        height: 100%;
-        width: 200%;
-        border-top-right-radius: 100%;
-        border-top-left-radius: 100%;
-      }
-
       .Testimonials-content {
         width: 90%;
-        margin: 40px auto;
+        margin: 0px auto;
 
         .Testimonials-intro {
           text-align: center;
@@ -354,24 +333,24 @@
           justify-content: center;
           align-items: center;
           width: 100%;
-
-          h2 {
-            margin: 30px auto;
-            font-family: $fontPrimary;
-            font-size: 40px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            color: white;
+  
+          h3 {
+            font-family: $fontQuaternary;
+            font-weight: 600;
+            font-size: 27px;
+            line-height: 36px;
+            letter-spacing: 1px;
+  
+            b {
+              color: $cerulean;
+            }
           }
         }
 
         .Testimonials {
           .Testimonial {
-            background-color: $paleteal;
-            border-radius: 5px;
-            padding: 30px;
-            margin: 30px 20px 40px;
-            box-shadow: 1px 1px 6px 2px #24157133;
+            background-color: white;
+            margin: 30px 20px 60px;
 
             &-text {
               text-align: center;
@@ -384,11 +363,18 @@
               }
 
               p {
-                font-family: $fontPrimary;
-                font-size: 18px;
-                font-weight: 400;
+                margin: 30px auto;
+                color: black;
+                font-size: 19px;
+                font-weight: 300;
                 letter-spacing: 2px;
+                line-height: 28px;
                 text-transform: uppercase;
+
+                q {
+                  font-size: 21px;
+                  text-transform: none;
+                }
               }
             }
           }
@@ -405,6 +391,7 @@
             display: inline-flex;
 
             .Testimonial {
+              margin: 0 20px;
               width: 50%;
             }
           }
@@ -412,10 +399,6 @@
       }
 
       @include for-tablet-landscape-up {
-        .Testimonials-underlay {
-          background: linear-gradient($cerulean 50%, white);
-        }
-
         .Testimonials-content {
           display: flex;
           margin: 0 auto 40px;
