@@ -173,6 +173,9 @@ class Home extends Component<Props> {
             </div>
           </section>
           <section className='Section Section--contact' id='contact'>
+            <div className='Contact-background'>
+              <img id='homeContactImg' src={`${imagesUrl}/circles.png`} />
+            </div>
             <div className='Contact'>
               <div className='Contact-info'>
                 <div className='Contact-info-text'>

@@ -31,16 +31,24 @@ class RootComponent extends Component<Props> {
     document.body.style.height = window.innerHeight + 'px';
     
     if (this.props.router.pathname === '/') {
-      const image = (
-        document.getElementById('homeServicesImg') as HTMLImageElement | null
-      );
+      const servicesBg =
+        document.getElementById('homeServicesImg') as HTMLImageElement | null;
 
-      if (image) {
+      if (servicesBg) {
         if (!window.matchMedia('(min-width: 600px)').matches) {
-          image.style.left = `${(window.innerWidth - image.width) / 2}px`;
+          servicesBg.style.left =
+            `${(window.innerWidth - servicesBg.width) / 2}px`;
         } else {
-          image.style.left = '';
+          servicesBg.style.left = '';
         }
+      }
+
+      const contactBg =
+        document.getElementById('homeContactImg') as HTMLImageElement | null;
+
+      if (contactBg) {
+        contactBg.style.left =
+          `${(window.innerWidth - contactBg.width) / 2}px`;
       }
     }
   }
