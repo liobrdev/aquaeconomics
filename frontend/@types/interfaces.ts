@@ -21,7 +21,7 @@ export interface IContactForm {
   last_name: string;
   email: string;
   organization: string;
-  phone_number?: string;
+  services_needed: string[];
   message: string;
 }
 

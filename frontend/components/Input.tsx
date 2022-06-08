@@ -1,10 +1,12 @@
 import React, { Component, FocusEvent, InputHTMLAttributes } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 
 interface Props extends InputHTMLAttributes<HTMLInputElement>{
   label?: string | JSX.Element;
   showAsterisk?: boolean;
   showObelisk?: boolean;
+  errors?: string[];
 }
 
 export default class Input extends Component<Props> {
@@ -22,7 +24,15 @@ export default class Input extends Component<Props> {
   }
 
   render() {
-    const { className, id, showAsterisk, showObelisk, ...rest } = this.props;
+    const {
+      className,
+      id,
+      showAsterisk,
+      showObelisk,
+      errors,
+      ...rest
+    } = this.props;
+
     const { disabled, label, name } = rest;
 
     return (
@@ -40,6 +50,9 @@ export default class Input extends Component<Props> {
           id={name}
           onFocus={this.handleFocus}
         />
+        {!!errors && errors.map(
+          e => <p key={uuidv4()} className='Input-error'>{e}</p>
+        )}
         {showAsterisk && (
           <span className='Input-asterisk'>*</span>
         )}

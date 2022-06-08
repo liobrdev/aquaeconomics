@@ -11,7 +11,7 @@ const initialForm: IContactForm = {
   last_name: '',
   email: '',
   organization: '',
-  phone_number: undefined,
+  services_needed: [],
   message: '',
 };
 
@@ -21,6 +21,28 @@ export default function ContactForm() {
   const [form, setForm] = useState({ ...initialForm });
   const [error, setError] = useState({ ...initialError });
   const [isSending, setIsSending] = useState(false);
+
+  const handleCheckbox = () => (e: FormEvent<HTMLInputElement>) => {
+    const value = (e.target as HTMLInputElement).value;
+    const checked = (e.target as HTMLInputElement).checked;
+
+    if (checked) {
+      setForm((prevState) => {
+        if (prevState.services_needed.includes(value)) return { ...prevState };
+
+        return {
+          ...prevState,
+          services_needed: [...prevState.services_needed, value],
+        };
+      });
+    } else {
+      setForm((prevState) => ({
+        ...prevState,
+        services_needed:
+          prevState.services_needed.filter(service => service !== value),
+      }));
+    }
+  };
 
   const handleInput = () => (e: FormEvent<HTMLInputElement>) => {
     const name = (e.target as HTMLInputElement).name;
@@ -59,7 +81,7 @@ export default function ContactForm() {
         <div className='ContactForm-table-row'>
           <Input
             className='ContactForm-input'
-            label='First name'
+            label={<>First name<span>*</span></>}
             name='first_name'
             value={form.first_name}
             type='text'
@@ -69,13 +91,11 @@ export default function ContactForm() {
             onChange={handleInput()}
             placeholder='Jane'
             required
+            errors={error?.first_name?.map(e => e.msg)}
           />
-          {error?.first_name?.map(e => (
-            <p key={e.id} className='ContactForm-error'>{e.msg}</p>
-          ))}
           <Input
             className='ContactForm-input'
-            label='Last name'
+            label={<>Last name<span>*</span></>}
             name='last_name'
             value={form.last_name}
             type='text'
@@ -85,15 +105,13 @@ export default function ContactForm() {
             onChange={handleInput()}
             placeholder='Doe'
             required
+            errors={error?.last_name?.map(e => e.msg)}
           />
-          {error?.last_name?.map(e => (
-            <p key={e.id} className='ContactForm-error'>{e.msg}</p>
-          ))}
         </div>
         <div className='ContactForm-table-row'>
           <Input
             className='ContactForm-input'
-            label='Email'
+            label={<>Email<span>*</span></>}
             name='email'
             value={form.email}
             type='text'
@@ -103,13 +121,11 @@ export default function ContactForm() {
             onChange={handleInput()}
             placeholder='janedoe@email.org'
             required
+            errors={error?.email?.map(e => e.msg)}
           />
-          {error?.email?.map(e => (
-            <p key={e.id} className='ContactForm-error'>{e.msg}</p>
-          ))}
           <Input
             className='ContactForm-input'
-            label='Organization'
+            label={<>Organization<span>*</span></>}
             name='organization'
             value={form.organization}
             type='text'
@@ -119,27 +135,84 @@ export default function ContactForm() {
             onChange={handleInput()}
             placeholder='Business LLC'
             required
+            errors={error?.organization?.map(e => e.msg)}
           />
-          {error?.organization?.map(e => (
-            <p key={e.id} className='ContactForm-error'>{e.msg}</p>
-          ))}
+        </div>
+        <div className='ContactForm-table-row'>
+          <div className='ContactForm-table-row-column'>
+            <div className='ContactForm-servicesLabel'>Services Needed</div>
+            <Input
+              className='ContactForm-checkbox'
+              label='Site Planning &amp; Design'
+              name='site_design'
+              value='Site Planning and Design'
+              type='checkbox'
+              checked={form.services_needed.some(
+                s => s === 'Site Planning and Design'
+              )}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+            <Input
+              className='ContactForm-checkbox'
+              label='Land Surveying'
+              name='surveying'
+              value='Land Surveying'
+              type='checkbox'
+              checked={form.services_needed.some(s => s === 'Land Surveying')}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+            <Input
+              className='ContactForm-checkbox'
+              label='Water Resources'
+              name='water_resources'
+              value='Water Resources'
+              type='checkbox'
+              checked={form.services_needed.some(s => s === 'Water Resources')}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+            <Input
+              className='ContactForm-checkbox'
+              label='Stormwater Bill Analysis'
+              name='stormwater'
+              value='Stormwater Bill Analysis'
+              type='checkbox'
+              checked={form.services_needed.some(
+                s => s === 'Stormwater Bill Analysis'
+              )}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+            <Input
+              className='ContactForm-checkbox'
+              label='Other'
+              name='other'
+              value='Other'
+              type='checkbox'
+              checked={form.services_needed.some(s => s === 'Other')}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+          </div>
+          <div className='ContactForm-table-row-column'>
+            <TextArea
+              className='ContactForm-textArea'
+              label={<>Message<span>*</span></>}
+              name='message'
+              value={form.message}
+              disabled={isSending}
+              minLength={1}
+              maxLength={500}
+              onChange={handleTextArea()}
+              placeholder='Briefly describe your project, goals, needs, etc.'
+              required
+              errors={error?.message?.map(e => e.msg)}
+            />
+          </div>
         </div>
       </div>
-      <TextArea
-        className='ContactForm-textArea'
-        label='Message'
-        name='message'
-        value={form.message}
-        disabled={isSending}
-        minLength={1}
-        maxLength={500}
-        onChange={handleTextArea()}
-        placeholder='Message'
-        required
-      />
-      {error?.message?.map(e => (
-        <p key={e.id} className='ContactForm-error'>{e.msg}</p>
-      ))}
       {error?.nonField?.map(e => (
         <p key={e.id} className='ContactForm-error'>{e.msg}</p>
       ))}

@@ -504,8 +504,34 @@
           padding: 20px;
           font-family: $fontSecondary;
 
-          .Input, .TextArea {
+          &-table {
             margin-top: 20px;
+
+            &-row {
+              &-column {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 20px;
+
+                .ContactForm-servicesLabel {
+                  width: 100%;
+                  font-weight: 500;
+                  font-size: 16.5px;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  color: $berry;
+                  margin-bottom: 20px;
+                }
+
+                .TextArea {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
+          &-input, &-textArea {
+            position: relative;
 
             label {
               display: block;
@@ -514,8 +540,21 @@
               letter-spacing: 1px;
               text-transform: uppercase;
               color: $berry;
+
+              span {
+                color: red;
+                font-size: 24px;
+                position: relative;
+                top: 6px;
+                left: 1px;
+                line-height: 20px;
+              }
             }
-        
+          }
+
+          &-input {
+            margin-top: 20px;
+
             input {
               width: 100%;
               font-weight: 400;
@@ -530,20 +569,52 @@
               margin: 5px 0 10px;
             }
 
+            .Input-error {
+              margin: 0;
+              color: red;
+              font-family: $fontPrimary;
+              font-size: 16.5px;
+              font-weight: 400;
+              line-height: 24px;
+            }
+          }
+
+          &-textArea {
             textarea {
               width: 100%;
               font-size: 19px;
               font-weight: 500;
               letter-spacing: 1px;
-              line-height: 20px;
+              line-height: 24px;
               border: none;
               outline: none;
-              height: 102px;
+              height: 155px;
               background: none;
               border-bottom: 0.5px solid $berry;
               color: black;
               margin: 5px 0 10px;
               font-family: $fontPrimary;
+            }
+
+            .TextArea-error {
+              margin: 0;
+              color: red;
+              font-family: $fontPrimary;
+              font-size: 16.5px;
+              font-weight: 400;
+              line-height: 24px;
+            }
+          }
+
+          &-checkbox {
+            margin: 0 15px 10px 0;
+
+            label {
+              font-family: $fontPrimary;
+              font-size: 19px;
+              font-weight: 300;
+              line-height: 24px;
+              margin-right: 3px;
             }
           }
 
@@ -553,7 +624,7 @@
             outline: none;
             min-width: 135px;
             position: relative;
-            background-color: $red;
+            background-color: lightseagreen;
             box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
             text-transform: uppercase;
             -webkit-transition: all 0.1s linear;
@@ -586,6 +657,15 @@
               font-weight: 500;
               text-shadow: unset;
             }
+          }
+
+          &-error {
+            margin: 5px 0;
+            color: red;
+            font-family: $fontPrimary;
+            font-size: 16.5px;
+            font-weight: 400;
+            line-height: 24px;
           }
         }
       }
@@ -622,26 +702,56 @@
               &-row {
                 display: table-row;
 
-                .Input {
+                .ContactForm-input {
                   display: table-cell;
 
                   label,
-                  input {
+                  input,
+                  .Input-error {
                     display: block;
                     width: 90%;
                     margin: 5px auto;
+                  }
+
+                  .Input-error {
+                    margin: 0 auto;
+                  }
+                }
+
+                &-column {
+                  display: table-cell;
+
+                  .ContactForm-servicesLabel {
+                    display: block;
+                    width: 90%;
+                    margin: 20px auto 15px;
+                  }
+
+                  .ContactForm-checkbox {
+                    display: block;
+                    width: 90%;
+                    margin: 5px auto;
+                  }
+
+                  .TextArea {
+                    label,
+                    textarea,
+                    .TextArea-error {
+                      display: block;
+                      width: 90%;
+                      margin: 5px auto;
+                    }
+
+                    .TextArea-error {
+                      margin: 0 auto;
+                    }
                   }
                 }
               }
             }
 
-            .TextArea {
-              width: 95%;
-              margin: 20px auto;
-
-              textarea {
-                height: 85px;
-              }
+            &-error {
+              text-align: center;
             }
           }
         }

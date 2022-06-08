@@ -59,8 +59,8 @@ export default class NavigationSub extends Component<Props, State> {
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/highlights' }}>
-                  <a>Highlights</a>
+                <Link href={{ pathname: '/portfolio' }}>
+                  <a>Portfolio</a>
                 </Link>
               </li>
               <li>

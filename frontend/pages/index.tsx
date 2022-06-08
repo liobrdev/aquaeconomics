@@ -53,7 +53,7 @@ class Home extends Component<Props> {
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
-                Comprehensive civil engineering and surveying
+                Comprehensive site civil engineering and surveying
                 for Philadelphia and the Delaware Valley.
               </h1>
               <h2>We drive solutions and savings.</h2>
@@ -70,7 +70,7 @@ class Home extends Component<Props> {
               <InViewWrapper threshold={0.5} unobserveOnEnter>
                 <p>
                   With more than 40 years of civil engineering experience
-                  in the Philadelphia area, we know what works. Our experts
+                  in the Greater Philadelphia region, we know what works. Our experts
                   have delivered solutions for a wide variety of clients meeting
                   diverse goals in site planning and development, surveying,
                   stormwater management, zoning and municipal relations.
@@ -192,7 +192,7 @@ class Home extends Component<Props> {
                   <InViewWrapper threshold={1} unobserveOnEnter>
                     <h3>Leave a message and get help <b>today!</b></h3>
                   </InViewWrapper>
-                  <InViewWrapper threshold={0.5} unobserveOnEnter>
+                  <InViewWrapper threshold={0.75} unobserveOnEnter>
                     <h4>
                       Complete the form, or reach us at:
                     </h4>
