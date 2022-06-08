@@ -3,6 +3,7 @@ export { default as CloseIcon } from './CloseIcon';
 export { default as ContactForm } from './ContactForm';
 export { default as Footer } from './Footer';
 export { default as Input } from './Input';
+export { default as InViewWrapper } from './InViewWrapper';
 export { default as LeftArrowIcon } from './LeftArrowIcon';
 export { default as LoadingView } from './LoadingView';
 export { default as MenuIcon } from './MenuIcon';

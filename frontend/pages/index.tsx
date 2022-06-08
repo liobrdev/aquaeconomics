@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { withRouter, NextRouter } from 'next/router';
 
-import { ContactForm } from '@/components';
+import { ContactForm, InViewWrapper } from '@/components';
 import { AppState, IBreadcrumbListItem } from '@/types';
 
 
@@ -61,23 +61,27 @@ class Home extends Component<Props> {
           </section>
           <section className='Section Section--welcome' id='welcome'>
             <div className='Welcome'>
-              <h3>
-                <b>Aqua</b> can design and shepherd all of your land and site
-                development projects.
-              </h3>
-              <p>
-                With more than 40 years of civil engineering experience
-                in the Philadelphia area, we know what works. Our experts
-                have delivered solutions for a wide variety of clients meeting
-                diverse goals in site planning and development, surveying,
-                stormwater management, zoning and municipal relations.
-                <br/>
-                <br/>
-                We specialize in solving problems <b>before</b> they occur.
-              </p>
-              <Link href={{ pathname: '/about' }}>
-                <a>Learn more &#8594;</a>
-              </Link>
+              <InViewWrapper threshold={1} unobserveOnEnter>
+                <h3>
+                  <b>Aqua</b> can design and shepherd all of your land and site
+                  development projects.
+                </h3>
+              </InViewWrapper>
+              <InViewWrapper threshold={0.5} unobserveOnEnter>
+                <p>
+                  With more than 40 years of civil engineering experience
+                  in the Philadelphia area, we know what works. Our experts
+                  have delivered solutions for a wide variety of clients meeting
+                  diverse goals in site planning and development, surveying,
+                  stormwater management, zoning and municipal relations.
+                  <br/>
+                  <br/>
+                  We specialize in solving problems <b>before</b> they occur.
+                </p>
+                <Link href={{ pathname: '/about' }}>
+                  <a>Learn more &#8594;</a>
+                </Link>
+              </InViewWrapper>
             </div>
           </section>
           <section className='Section Section--services'>
@@ -144,30 +148,36 @@ class Home extends Component<Props> {
           <section className='Section Section--testimonials'>
             <div className='Testimonials-content'>
               <div className='Testimonials-intro'>
-                <h3>What <b>Aqua</b> clients are saying...</h3>
+                <InViewWrapper threshold={1} unobserveOnEnter>
+                  <h3>What <b>Aqua</b> clients are saying...</h3>
+                </InViewWrapper>
               </div>
               <div className='Testimonials'>
                 <div className='Testimonial'>
-                  <div className='Testimonial-text'>
-                    <p>
-                      <q>
-                        Aqua Economics saved us $9,000 a month on
-                        several of our properties.
-                      </q>
-                    </p>
-                    <p>&mdash; Richmond Management and clients along Delaware River</p>
-                  </div>
+                  <InViewWrapper threshold={0.5} unobserveOnEnter>
+                    <div className='Testimonial-text'>
+                      <p>
+                        <q>
+                          Aqua Economics saved us $9,000 a month on
+                          several of our properties.
+                        </q>
+                      </p>
+                      <p>&mdash; Richmond Management and clients along Delaware River</p>
+                    </div>
+                  </InViewWrapper>
                 </div>
                 <div className='Testimonial'>
-                  <div className='Testimonial-text'>
-                    <p>
-                      <q>
-                        We saved over $129,000 on our stormwater bill thanks to
-                        Aqua Economics &amp; Engineering.
-                      </q>
-                    </p>
-                    <p>&mdash; STS Warehousing &amp; Trucking</p>
-                  </div>
+                  <InViewWrapper threshold={0.5} unobserveOnEnter>
+                    <div className='Testimonial-text'>
+                      <p>
+                        <q>
+                          We saved over $129,000 on our stormwater bill thanks to
+                          Aqua Economics &amp; Engineering.
+                        </q>
+                      </p>
+                      <p>&mdash; STS Warehousing &amp; Trucking</p>
+                    </div>
+                  </InViewWrapper>
                 </div>
               </div>
             </div>
@@ -179,29 +189,33 @@ class Home extends Component<Props> {
             <div className='Contact'>
               <div className='Contact-info'>
                 <div className='Contact-info-text'>
-                  <h3>Leave a message and get help <b>today!</b></h3>
-                  <h4>
-                    Complete the form, or reach us at:
-                  </h4>
-                  <div className='Contact-info-text-email'>
-                    <p>
-                      <Link href='mailto:info@aquaeconomics.com'>
-                        <a>info@aquaeconomics.com</a>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className='Contact-info-text-phone'>
-                    <p>
-                      <Link href='tel:+12678859875'>
-                        <a>267.885.9875</a>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className='Contact-info-text-address'>
-                    <p>Aqua Economics &amp; Engineering</p>
-                    <p>1391 Walton Road</p>
-                    <p>Blue Bell, PA 19422</p>
-                  </div>
+                  <InViewWrapper threshold={1} unobserveOnEnter>
+                    <h3>Leave a message and get help <b>today!</b></h3>
+                  </InViewWrapper>
+                  <InViewWrapper threshold={0.5} unobserveOnEnter>
+                    <h4>
+                      Complete the form, or reach us at:
+                    </h4>
+                    <div className='Contact-info-text-email'>
+                      <p>
+                        <Link href='mailto:info@aquaeconomics.com'>
+                          <a>info@aquaeconomics.com</a>
+                        </Link>
+                      </p>
+                    </div>
+                    <div className='Contact-info-text-phone'>
+                      <p>
+                        <Link href='tel:+12678859875'>
+                          <a>267.885.9875</a>
+                        </Link>
+                      </p>
+                    </div>
+                    <div className='Contact-info-text-address'>
+                      <p>Aqua Economics &amp; Engineering</p>
+                      <p>1391 Walton Road</p>
+                      <p>Blue Bell, PA 19422</p>
+                    </div>
+                  </InViewWrapper>
                 </div>
               </div>
               <ContactForm />
