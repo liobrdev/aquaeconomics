@@ -30,33 +30,23 @@ export default class NavigationSub extends Component<Props, State> {
           {this.props.type === 'services' && (
             <>
               <li>
-                <Link href={{ pathname: '/stormwater' }}>
-                  <a>Reduce Your Stormwater Bill</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={{ pathname: '/engineering' }}>
-                  <a>Site Engineering</a>
+                <Link href={{ pathname: '/site_design' }}>
+                  <a>Site Planning &amp; Design</a>
                 </Link>
               </li>
               <li>
                 <Link href={{ pathname: '/surveying' }}>
-                  <a>Surveying</a>
+                  <a>Land Surveying</a>
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/ersa_plans' }}>
-                  <a>ERSA Plans</a>
+                <Link href={{ pathname: '/water_resources' }}>
+                  <a>Water Resources</a>
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/zoning' }}>
-                  <a>Zoning</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={{ pathname: '/consulting' }}>
-                  <a>Consulting</a>
+                <Link href={{ pathname: '/stormwater' }}>
+                  <a>Stormwater Bill Analysis</a>
                 </Link>
               </li>
             </>

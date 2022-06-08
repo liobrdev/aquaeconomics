@@ -23,33 +23,23 @@ export default function Footer() {
             <h5>Services</h5>
             <ul>
               <li>
-                <Link href={{ pathname: '/stormwater' }}>
-                  <a>Reduce Your Stormwater Bill</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={{ pathname: '/engineering' }}>
-                  <a>Site Engineering</a>
+                <Link href={{ pathname: '/site_design' }}>
+                  <a>Site Planning &amp; Design</a>
                 </Link>
               </li>
               <li>
                 <Link href={{ pathname: '/surveying' }}>
-                  <a>Surveying</a>
+                  <a>Land Surveying</a>
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/ersa_plans' }}>
-                  <a>ERSA Plans</a>
+                <Link href={{ pathname: '/water_resources' }}>
+                  <a>Water Resources</a>
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/zoning' }}>
-                  <a>Zoning</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={{ pathname: '/consulting' }}>
-                  <a>Consulting</a>
+                <Link href={{ pathname: '/stormwater' }}>
+                  <a>Stormwater Bill Analysis</a>
                 </Link>
               </li>
             </ul>
@@ -63,8 +53,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={{ pathname: '/highlights' }}>
-                  <a>Highlights</a>
+                <Link href={{ pathname: '/portfolio' }}>
+                  <a>Portfolio</a>
                 </Link>
               </li>
               <li>
