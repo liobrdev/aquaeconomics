@@ -56,7 +56,8 @@ class RootComponent extends Component<Props> {
   componentDidMount() {
     window.addEventListener('keydown', this.handleEsc);
     window.addEventListener('resize', this.handleResize);
-    this.handleResize();
+    setTimeout(() => this.handleResize(), 200);
+    setTimeout(() => this.handleResize(), 200);
   }
 
   componentDidUpdate(prevProps: Props) {

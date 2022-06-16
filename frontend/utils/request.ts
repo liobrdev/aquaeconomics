@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { IErrorInfo } from '@/types';
 
 
-const baseURL = process.env.NEXT_PUBLIC_SIMPLEKANBAN_API_URL || '/api';
+const baseURL = process.env.NEXT_PUBLIC_API_URL || '/api';
 
 export const parseErrorResponse = (
   response: any,
