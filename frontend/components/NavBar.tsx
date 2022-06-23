@@ -1,15 +1,12 @@
 import { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import throttle from 'lodash/throttle';
 
-import Link from 'next/link';
+import throttle from 'lodash/throttle';
 import { NextRouter, withRouter } from 'next/router';
 
 import { NavigationIcon, NavigationMain } from '@/components';
 import { AppState } from '@/types';
 
-
-const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
 
 class NavBar extends Component<Props, State> {
   private loadingTimeout?: ReturnType<typeof setTimeout>;
@@ -134,17 +131,6 @@ class NavBar extends Component<Props, State> {
           isOverBanner2 ? ' is-overBanner2' : ''
         }`}
       >
-        {/* <div className='Logo'>
-          <Link href={{ pathname: '/' }}>
-            <a>
-              <img
-                className='Logo-image'
-                src={`${imagesUrl}/Logo.png`}
-                alt='Aquaeconomics Logo'
-              />
-            </a>
-          </Link>
-        </div> */}
         {this.props.navigationOn ? <NavigationMain /> : <NavigationIcon />}
       </nav>
     )

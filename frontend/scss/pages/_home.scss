@@ -40,49 +40,89 @@
         padding-top: 50px;
         width: 80%;
         margin: 0 auto;
+        position: relative;
 
-        h1, h2 {
-          color: white;
-          font-family: $fontPrimary;
-          font-size: 28px;
-          font-weight: 300;
-          letter-spacing: 4px;
-          line-height: 38px;
-          max-width: 672px;
+        .Logo {
+          text-align: center;
+          position: relative;
+          
+          img {
+            width: 100%;
+            max-width: 250px;
+            margin-left: auto;
+          }
         }
 
-        h1 {
-          margin-top: 60px;
-        }
-      }
-
-      @include for-big-phone-up {
-        .Intro {
+        .IntroText {
           h1, h2 {
-            font-size: 32px;
-            line-height: 40px;
+            text-align: left;
+            color: white;
+            font-family: $fontPrimary;
+            max-width: 250px;
+            margin: 20px auto;
+          }
+
+          h1 {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            line-height: 38px;
+          }
+
+          h2 {
+            text-transform: uppercase;
+            font-size: 19px;
+            font-weight: 300;
+            letter-spacing: 3px;
           }
         }
       }
 
       @include for-tablet-portrait-up {
         .Intro {
-          width: 65%;
+          display: flex;
+          padding-top: 90px;
 
-          h1, h2 {
-            font-size: 40px;
-            line-height: 54px;
+          .Logo {
+            display: inline-flex;
+            width: calc(50% - 40px);
+            align-items: center;
+            text-align: right;
+            margin-right: 40px;
+
+            img {
+              margin-top: 30px;
+            }
+          }
+
+          .IntroText {
+            width: 50%;
+
+            h1, h2 {
+              margin-left: 0;
+              margin-right: auto;
+              max-width: 600px;
+            }
           }
         }
       }
 
       @include for-tablet-landscape-up {
         .Intro {
-          padding-top: 75px;
+          padding-top: 120px;
 
-          h1, h2 {
-            font-size: 45px;
-            line-height: 60px;
+          .Logo {
+            width: calc(38.2% - 40px);
+            align-items: baseline;
+          }
+
+          .IntroText {
+            width: 61.8%;
+
+            h1 {
+              font-size: 35px;
+              line-height: 49px;
+            }
           }
         }
       }
@@ -184,7 +224,7 @@
             font-size: 19px;
             font-weight: 300;
             letter-spacing: 3px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
           }
   
           h3 {
@@ -209,6 +249,7 @@
             text-align: center;
             color: black;
             background-color: white;
+            background-color: #fffffffa;
             border-radius: 2px;
             padding: 40px;
             box-shadow: 1px 2px 6px 4px #24157133;
@@ -299,8 +340,8 @@
         .Services {
           &-text {
             h3 {
-              font-size: 45px;
-              line-height: 60px;
+              font-size: 40px;
+              line-height: 50px;
               margin-bottom: 60px;
             }
           }
@@ -502,6 +543,7 @@
         .ContactForm {
           margin: 40px auto;
           background-color: white;
+          background-color: #ffffffdd;
           box-shadow: 1px 2px 6px 4px #24157133;
           border-radius: 2px;
           padding: 20px;

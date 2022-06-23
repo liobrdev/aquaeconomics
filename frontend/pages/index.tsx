@@ -126,11 +126,22 @@ class Home extends Component<Props, State> {
             />
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
-              <h1>
-                Comprehensive site civil engineering and surveying
-                for Philadelphia and the Delaware Valley.
-              </h1>
-              <h2>We drive solutions and savings.</h2>
+              <div className='Logo'>
+                <img
+                  className='Logo-image'
+                  src={`${imagesUrl}/Logo.png`}
+                  alt='Aquaeconomics Logo'
+                />
+              </div>
+              <div className='IntroText IntroText--home'>
+                <InViewWrapper threshold={1} unobserveOnEnter>
+                  <h1>
+                    Comprehensive site civil engineering and surveying
+                    for Philadelphia and the Delaware Valley.
+                  </h1>
+                  <h2>We drive solutions and savings.</h2>
+                </InViewWrapper>
+              </div>
             </div>
           </section>
           <section className='Section Section--welcome' id='welcome'>
@@ -148,9 +159,7 @@ class Home extends Component<Props, State> {
                   have delivered solutions for a wide variety of clients meeting
                   diverse goals in site planning and development, surveying,
                   stormwater management, zoning and municipal relations.
-                  <br/>
-                  <br/>
-                  We specialize in solving problems <b>before</b> they occur.
+                  We take pride in solving problems <b>before</b> they occur.
                 </p>
                 <Link href={{ pathname: '/about' }}>
                   <a>Learn more &#8594;</a>
