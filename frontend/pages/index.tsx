@@ -1,29 +1,93 @@
-import React, { Component, MouseEvent } from 'react';
+import React, { Component } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
+
+import every from 'lodash/every';
 
 import Head from 'next/head';
 import Link from 'next/link';
 import { withRouter, NextRouter } from 'next/router';
 
-import { ContactForm, InViewWrapper } from '@/components';
+import { ContactForm, InViewWrapper, LoadingView } from '@/components';
 import { AppState, IBreadcrumbListItem } from '@/types';
 
 
 const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
 
-class Home extends Component<Props> {
+class Home extends Component<Props, State> {
+  private loadingTimeout?: ReturnType<typeof setTimeout>;
+
   constructor(props: Props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
+    this.state = {
+      imagesLoaded: false,
+      imageError: false,
+    };
+
+    this.areImagesLoaded = this.areImagesLoaded.bind(this);
+    this.loadingTimeout = undefined;
   }
 
-  handleClick(e: MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    const welcome = document.getElementById('welcome');
-    if (welcome) scrollTo({ top: welcome.offsetTop, behavior: 'smooth' });
+  areImagesLoaded() {
+    const images = document.getElementsByClassName(
+      'LoadableMedia--home'
+    ) as HTMLCollectionOf<HTMLImageElement>;
+
+    return every(images, (img) => img.complete && img.naturalHeight !== 0);
+  }
+
+  componentDidMount() {
+    if (this.areImagesLoaded()) return this.setState({ imagesLoaded: true });
+
+    let counter = 60;
+
+    const recursiveCheck = () => {
+      this.loadingTimeout = setTimeout(() => {
+        console.log('checking media')
+        --counter;
+
+        if (this.areImagesLoaded()) this.setState({ imagesLoaded: true });
+        else if (counter === 0) {
+          this.setState({ imageError: true });
+          console.error('Media did not load within a reasonable time frame!');
+        } else recursiveCheck();
+      }, 1000);
+    };
+
+    recursiveCheck();
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    if (!prevState.imagesLoaded && this.state.imagesLoaded) {
+      const servicesBg =
+        document.getElementById('homeServicesImg') as HTMLImageElement | null;
+
+      if (servicesBg) {
+        if (!window.matchMedia('(min-width: 600px)').matches) {
+          servicesBg.style.left =
+            `${(window.innerWidth - servicesBg.width) / 2}px`;
+        } else {
+          servicesBg.style.left = '';
+        }
+      }
+
+      const contactBg =
+        document.getElementById('homeContactImg') as HTMLImageElement | null;
+
+      if (contactBg) {
+        contactBg.style.left =
+          `${(window.innerWidth - contactBg.width) / 2}px`;
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.loadingTimeout) clearTimeout(this.loadingTimeout);
   }
 
   render() {
+    const { imagesLoaded, imageError } = this.state;
+
     const breadcrumbList: IBreadcrumbListItem[] = [
       {
         "@type": "ListItem",
@@ -48,8 +112,19 @@ class Home extends Component<Props> {
           </title>
           <script type="application/ld+json">{breadcrumb}</script>
         </Head>
+        <LoadingView
+          className={`LoadingView--fullscreen${
+            imagesLoaded || imageError ? ' is-loaded' : ''
+          }`}
+        />
         <main className='Page Page--home'>
           <section className='Section Section--intro' id='home-banner'>
+            <img
+              className='LoadableMedia LoadableMedia--home'
+              id='homeBannerImg'
+              src={`${imagesUrl}/construction-building.jpg`}
+              alt=''
+            />
             <div className='Intro-overlay' />
             <div className='Intro Intro--home'>
               <h1>
@@ -87,8 +162,10 @@ class Home extends Component<Props> {
           <section className='Section Section--services'>
             <div className='Services-background'>
               <img
+                className='LoadableMedia LoadableMedia--home'
                 id='homeServicesImg'
                 src={`${imagesUrl}/construction-blueprints.jpg`}
+                alt=''
               />
             </div>
             <div className='Services'>
@@ -184,7 +261,12 @@ class Home extends Component<Props> {
           </section>
           <section className='Section Section--contact' id='contact'>
             <div className='Contact-background'>
-              <img id='homeContactImg' src={`${imagesUrl}/circles.png`} />
+              <img
+                className='LoadableMedia LoadableMedia--home'
+                id='homeContactImg'
+                src={`${imagesUrl}/circles.png`}
+                alt=''
+              />
             </div>
             <div className='Contact'>
               <div className='Contact-info'>
@@ -237,6 +319,11 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 interface Props extends PropsFromRedux {
   router: NextRouter;
+}
+
+interface State {
+  imagesLoaded: boolean;
+  imageError: boolean;
 }
 
 export default withRouter(connector(Home));

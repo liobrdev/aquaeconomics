@@ -21,7 +21,7 @@ export default class LoadingView extends Component<Props, State> {
   componentDidMount() {
     this.loadingTimeout = setTimeout(() => {
       this.setState({ spinnerOn: true });
-    }, 1000);
+    }, 200);
   }
 
   componentWillUnmount() {

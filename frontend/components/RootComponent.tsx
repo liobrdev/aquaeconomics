@@ -29,35 +29,32 @@ class RootComponent extends Component<Props> {
 
   handleResize() {
     document.body.style.height = window.innerHeight + 'px';
-    
-    if (this.props.router.pathname === '/') {
-      const servicesBg =
-        document.getElementById('homeServicesImg') as HTMLImageElement | null;
 
-      if (servicesBg) {
-        if (!window.matchMedia('(min-width: 600px)').matches) {
-          servicesBg.style.left =
-            `${(window.innerWidth - servicesBg.width) / 2}px`;
-        } else {
-          servicesBg.style.left = '';
-        }
+    const servicesBg =
+      document.getElementById('homeServicesImg') as HTMLImageElement | null;
+
+    if (servicesBg) {
+      if (!window.matchMedia('(min-width: 600px)').matches) {
+        servicesBg.style.left =
+          `${(window.innerWidth - servicesBg.width) / 2}px`;
+      } else {
+        servicesBg.style.left = '';
       }
+    }
 
-      const contactBg =
-        document.getElementById('homeContactImg') as HTMLImageElement | null;
+    const contactBg =
+      document.getElementById('homeContactImg') as HTMLImageElement | null;
 
-      if (contactBg) {
-        contactBg.style.left =
-          `${(window.innerWidth - contactBg.width) / 2}px`;
-      }
+    if (contactBg) {
+      contactBg.style.left =
+        `${(window.innerWidth - contactBg.width) / 2}px`;
     }
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleEsc);
     window.addEventListener('resize', this.handleResize);
-    setTimeout(() => this.handleResize(), 200);
-    setTimeout(() => this.handleResize(), 200);
+    this.handleResize();
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -85,12 +82,6 @@ class RootComponent extends Component<Props> {
             type="image/x-icon"
             sizes="48x48"
             href="/favicon.ico"
-          />
-          <link
-            rel="apple-touch-icon"
-            type="image/png"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
           />
           <link
             rel="icon"

@@ -30,8 +30,8 @@
     &.is-spinning {
       width: 50px;
       height: 50px;
-      border: 3px solid #fccccc;
-      border-left: 3px solid $red;
+      border: 3px solid lightblue;
+      border-left: 3px solid lightseagreen;
       border-radius: 50%;
       position: absolute;
       top: calc(50% - 25px);
@@ -51,11 +51,10 @@
   &.is-loaded {
     height: 100%;
     width: 0%;
-    opacity: 0;
 
     @include for-tablet-portrait-up {
-      bottom: unset;
-      top: 0;
+      top: unset;
+      bottom: 0;
       height: 0%;
       width: 100%;
     }
