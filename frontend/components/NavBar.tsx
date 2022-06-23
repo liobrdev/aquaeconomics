@@ -7,91 +7,134 @@ import { NextRouter, withRouter } from 'next/router';
 
 import { NavigationIcon, NavigationMain } from '@/components';
 import { AppState } from '@/types';
-import { getScrollY } from '@/utils';
 
 
 const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
 
-let prevScrollPos = 0;
-
 class NavBar extends Component<Props, State> {
+  private loadingTimeout?: ReturnType<typeof setTimeout>;
+
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      banner: null,
-      isHidden: false,
-      isPastBanner: false,
+      banner1: null,
+      banner2: null,
+      isOverBanner1: false,
+      isOverBanner2: false,
     };
-
+    
     this.onScroll = throttle(this.onScroll.bind(this), 200, {
       leading: true,
     });
+
+    this.loadingTimeout = undefined;
+    this.checkBannerOverlap = this.checkBannerOverlap.bind(this);
+    this.checkIsOverBanner1 = this.checkIsOverBanner1.bind(this);
+    this.checkIsOverBanner2 = this.checkIsOverBanner2.bind(this);
+    this.setBanners = this.setBanners.bind(this);
+    this.areBannersLoaded = this.areBannersLoaded.bind(this);
   }
 
   onScroll() {
     if (this.props.navigationOn) return;
-
-    const currentScrollPos = getScrollY();
-
-    if (currentScrollPos < prevScrollPos) {
-      this.setState({ isHidden: false });
-    } else {
-      this.setState({ isHidden: true });
-    }
-
-    if (
-      this.state.banner
-      && currentScrollPos < this.state.banner.clientHeight - 100
-    ) {
-      this.setState({ isPastBanner: false });
-    } else {
-      this.setState({ isPastBanner: true });
-    }
-
-    prevScrollPos = currentScrollPos;
+    this.checkIsOverBanner1();
+    this.checkIsOverBanner2();
   }
 
-  setBanner() {
+  checkIsOverBanner1() {
+    if (this.state.banner1) {
+      const { top, bottom } = this.state.banner1.getBoundingClientRect();
+
+      if (43 >= top && 43 <= bottom) {
+        return this.setState({ isOverBanner1: true });
+      } else this.setState({ isOverBanner1: false });
+    }
+  }
+
+  checkIsOverBanner2() {
+    if (this.state.banner2) {
+      const { top, bottom } = this.state.banner2.getBoundingClientRect();
+
+      if (43 >= top && 43 <= bottom) {
+        this.setState({ isOverBanner2: true });
+      } else this.setState({ isOverBanner2: false });
+    }
+  }
+
+  setBanners() {
     let name = this.props.router.pathname;
 
     if (name === '/') name = 'home';
     else name = name.slice(1);
 
-    this.setState({
-      banner: document.getElementById(`${name}-banner`),
-    }, () => {
-      if (!this.state.banner) this.setState({ isPastBanner: true });
-      else this.setState({ isPastBanner: false });
-    });
+    this.setState({ banner1: document.getElementById(`${name}-banner1`) });
+    this.setState({ banner2: document.getElementById(`${name}-banner2`) });
+  }
+
+  areBannersLoaded() {
+    return (
+      !!this.state.banner1 && this.state.banner1.clientHeight !== 0
+      && !!this.state.banner2 && this.state.banner2.clientHeight !== 0
+    );
+  }
+
+  checkBannerOverlap() {
+    this.setBanners();
+
+    if (this.areBannersLoaded()) {
+      this.checkIsOverBanner1();
+      this.checkIsOverBanner2();
+      return;
+    }
+
+    let counter = 240;
+
+    const recursiveCheck = () => {
+      this.loadingTimeout = setTimeout(() => {
+        this.setBanners();
+        --counter;
+
+        if (this.areBannersLoaded()) {
+          this.checkIsOverBanner1();
+          this.checkIsOverBanner2();
+        } else if (counter === 0) {
+          console.error('Banners did not load in a reasonable time!');
+        } else recursiveCheck();
+      }, 250);
+    };
+
+    recursiveCheck();
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
-    this.setBanner();
-    prevScrollPos = getScrollY();
+    this.checkBannerOverlap();
   }
 
   componentDidUpdate(prevProps: Props) {
     if (this.props.router.pathname !== prevProps.router.pathname) {
-      this.setBanner();
+      this.checkBannerOverlap();
     }
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
+    if (this.loadingTimeout) clearTimeout(this.loadingTimeout);
   }
 
   render() {
+    const { isOverBanner1, isOverBanner2 } = this.state;
+
     return (
       <nav
         className={`NavBar${
-          this.state.isHidden ? ' is-hidden' : ''
+          isOverBanner1 ? ' is-overBanner1' : ''
         }${
-          this.state.isPastBanner ? ' is-pastBanner' : ''
+          isOverBanner2 ? ' is-overBanner2' : ''
         }`}
       >
-        <div className='Logo'>
+        {/* <div className='Logo'>
           <Link href={{ pathname: '/' }}>
             <a>
               <img
@@ -101,7 +144,7 @@ class NavBar extends Component<Props, State> {
               />
             </a>
           </Link>
-        </div>
+        </div> */}
         {this.props.navigationOn ? <NavigationMain /> : <NavigationIcon />}
       </nav>
     )
@@ -122,9 +165,10 @@ interface Props extends PropsFromRedux {
 }
 
 interface State {
-  banner: HTMLElement | null;
-  isHidden: boolean;
-  isPastBanner: boolean;
+  banner1: HTMLElement | null;
+  banner2: HTMLElement | null;
+  isOverBanner1: boolean;
+  isOverBanner2: boolean
 }
 
 export default connector(withRouter(NavBar));

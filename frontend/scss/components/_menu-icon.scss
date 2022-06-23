@@ -1,6 +1,6 @@
 $height-icon: 16px;
 $width-line: 24px;
-$height-line: 1px;
+$height-line: 2px;
 
 $transition-time: 0.25s;
 $rotation: 45deg;
@@ -81,7 +81,7 @@ $translateX: 0;
       .MenuIcon-icon {
         &-line {
           background-color: white;
-          height: $height-line * 2;
+          height: $height-line;
           
           &--line1 {
             -webkit-transform: translateY($translateY) translateX($translateX) rotate($rotation);

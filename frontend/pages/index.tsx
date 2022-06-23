@@ -43,7 +43,6 @@ class Home extends Component<Props, State> {
 
     const recursiveCheck = () => {
       this.loadingTimeout = setTimeout(() => {
-        console.log('checking media')
         --counter;
 
         if (this.areImagesLoaded()) this.setState({ imagesLoaded: true });
@@ -118,7 +117,7 @@ class Home extends Component<Props, State> {
           }`}
         />
         <main className='Page Page--home'>
-          <section className='Section Section--intro' id='home-banner'>
+          <section className='Section Section--intro' id='home-banner1'>
             <img
               className='LoadableMedia LoadableMedia--home'
               id='homeBannerImg'
@@ -160,7 +159,7 @@ class Home extends Component<Props, State> {
             </div>
           </section>
           <section className='Section Section--services'>
-            <div className='Services-background'>
+            <div className='Services-background' id='home-banner2'>
               <img
                 className='LoadableMedia LoadableMedia--home'
                 id='homeServicesImg'

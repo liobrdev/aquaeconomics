@@ -1,53 +1,39 @@
 .NavBar {
   z-index: 2;
-  display: flex;
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  align-items: center;
+  right: 0;
   -webkit-transition: all 0.1s linear;
      -moz-transition: all 0.1s linear;
        -o-transition: all 0.1s linear;
           transition: all 0.1s linear;
 
-  &.is-pastBanner {
-    box-shadow: 0 1px 15px -7px #E0E0E0;
-    border-bottom: 1px solid #E0E0E0;
-    background: white;
+  .MenuIcon {
+    &:focus {
+      outline: $cerulean dashed 1px;
+    }
 
+    .MenuIcon-icon-line {
+      background-color: $cerulean;
+    }
+
+    &.is-active {
+      .MenuIcon-icon-line {
+        background-color: white;
+      }
+    }
+  }
+
+  &.is-overBanner1,
+  &.is-overBanner2 {
     .MenuIcon {
       &:focus {
-        outline: $cerulean dashed 1px;
+        outline: white dashed 1px;
       }
 
       .MenuIcon-icon-line {
-        background-color: $cerulean;
+        background-color: white;
       }
-
-      &.is-active {
-        .MenuIcon-icon-line {
-          background-color: white;
-        }
-      }
-    }
-  }
-
-  &.is-hidden {
-    height: 0;
-
-    .NavigationMain {
-      display: none;
-    }
-  }
-
-  .Logo {
-    position: relative;
-    left: 30px;
-
-    &-image {
-      width: 123px;
     }
   }
 

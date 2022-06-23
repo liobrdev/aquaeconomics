@@ -16,7 +16,7 @@ export default function NavigationIcon() {
   return (
     <div className='NavigationMain'> 
       <div className='MenuIcon-container'>
-        <MenuIcon onClick={handleShow} type='button' />
+        <MenuIcon id='navIcon' onClick={handleShow} type='button' />
       </div>
     </div>
   );
