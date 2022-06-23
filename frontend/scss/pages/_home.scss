@@ -25,6 +25,9 @@
       }
 
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       .Intro-overlay {
         z-index: -1;
@@ -37,7 +40,6 @@
       }
 
       .Intro {
-        padding-top: 50px;
         width: 80%;
         margin: 0 auto;
         position: relative;
@@ -81,7 +83,6 @@
       @include for-tablet-portrait-up {
         .Intro {
           display: flex;
-          padding-top: 90px;
 
           .Logo {
             display: inline-flex;
@@ -109,8 +110,6 @@
 
       @include for-tablet-landscape-up {
         .Intro {
-          padding-top: 120px;
-
           .Logo {
             width: calc(38.2% - 40px);
             align-items: baseline;
