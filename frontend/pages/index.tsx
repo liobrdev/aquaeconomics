@@ -115,6 +115,8 @@ class Home extends Component<Props, State> {
           className={`LoadingView--fullscreen${
             imagesLoaded || imageError ? ' is-loaded' : ''
           }`}
+          isFullscreen
+          isLoaded={imagesLoaded || imageError}
         />
         <main className='Page Page--home'>
           <section className='Section Section--intro' id='home-banner1'>
