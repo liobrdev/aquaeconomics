@@ -1,14 +1,25 @@
+import React, { MouseEvent } from 'react';
+
 import Link from 'next/link';
+
+import { useAppDispatch } from '@/hooks';
 
 
 const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
 
 export default function SiteLinks() {
+  const dispatch = useAppDispatch();
+
+  const handleClose = (e: MouseEvent<HTMLAnchorElement>) => {
+    window.scrollTo(0, 0);
+    dispatch({ type: 'NAVIGATION_CLOSE' });
+  };
+
   return (
     <div className='SiteLinks'>
       <div className='SiteLinks-logo'>
         <Link href={{ pathname: '/' }}>
-          <a>
+          <a onClick={handleClose}>
             <img
               className='SiteLinks-logo-image'
               src={`${imagesUrl}/Logo.png`}

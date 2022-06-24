@@ -15,6 +15,9 @@
   background: linear-gradient(white 0.5%, $paleteal, lightcyan);
 
   .SiteLinks {
+    width: 90%;
+    margin: 0 auto;
+
     &-navigation {
       h5 {
         font-size: 13px;

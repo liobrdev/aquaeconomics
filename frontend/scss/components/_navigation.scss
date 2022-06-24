@@ -68,11 +68,10 @@
       width: 100%;
       height: 100vh;
       font-family: $fontSecondary;
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: 1px;
-      background: $paleteal;
-      background: linear-gradient(white 0.5%, $paleteal, lightcyan);
+      background: honeydew;
       overflow-y: scroll;
 
       &::-webkit-scrollbar {
@@ -87,11 +86,11 @@
       &::-webkit-scrollbar-thumb {
         border: 3px solid transparent;
         border-radius: 100px;
-        background-color: lightseagreen;
+        background-color: $palered;
         background-clip: content-box;
       }
     
-      scrollbar-color: lightseagreen transparent;
+      scrollbar-color: $palered transparent;
 
       .MenuIcon-container {
         position: fixed;
@@ -105,6 +104,8 @@
 
       .SiteLinks {
         padding-top: 35px;
+        width: 95%;
+        margin: 0 auto;
 
         &-navigation {
           &-column {
@@ -116,6 +117,8 @@
 
             ul {
               li {
+                margin-bottom: 5px;
+
                 a {
                   color: $cerulean;
                 }
@@ -127,7 +130,7 @@
 
       @include for-medium-window-up {
         @include for-tablet-portrait-up {
-          max-width: 450px;
+          max-width: 480px;
         }
       }
 
