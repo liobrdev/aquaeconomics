@@ -28,11 +28,11 @@ html {
   &::-webkit-scrollbar-thumb {
     border: 3px solid transparent;
     border-radius: 100px;
-    background-color: $palered;
+    background-color: lightseagreen;
     background-clip: content-box;
   }
 
-  scrollbar-color: $palered transparent;
+  scrollbar-color: lightseagreen transparent;
 }
 
 body {
