@@ -71,18 +71,10 @@ $translateX: 0;
   }
     
   &.is-active {
-    &:focus,
-    &:hover {
-      outline: white dashed 1px;
-    }
-
     &:hover,
     &:focus, & {
       .MenuIcon-icon {
-        &-line {
-          background-color: white;
-          height: $height-line;
-          
+        &-line {          
           &--line1 {
             -webkit-transform: translateY($translateY) translateX($translateX) rotate($rotation);
                -moz-transform: translateY($translateY) translateX($translateX) rotate($rotation);

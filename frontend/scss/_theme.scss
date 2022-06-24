@@ -17,7 +17,7 @@ h6 {
 
 html {
   &::-webkit-scrollbar {
-    width: initial;
+    width: 10px;
   }
 
   &::-webkit-scrollbar-track {
@@ -26,13 +26,13 @@ html {
   }
 
   &::-webkit-scrollbar-thumb {
-    border: 5px solid transparent;
+    border: 3px solid transparent;
     border-radius: 100px;
-    background-color: $lightred;
+    background-color: seagreen;
     background-clip: content-box;
   }
 
-  scrollbar-color: $lightred white;
+  scrollbar-color: lightgreen transparent;
 }
 
 body {

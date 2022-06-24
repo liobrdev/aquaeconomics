@@ -60,6 +60,7 @@ class RootComponent extends Component<Props> {
   componentDidUpdate(prevProps: Props) {
     if (this.props.router.pathname !== prevProps.router.pathname) {
       window.scrollTo(0, 0);
+      this.props.closeNavigation();
     }
   }
 

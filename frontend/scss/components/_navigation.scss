@@ -16,12 +16,6 @@
     .MenuIcon-icon-line {
       background-color: $cerulean;
     }
-
-    &.is-active {
-      .MenuIcon-icon-line {
-        background-color: white;
-      }
-    }
   }
 
   &.is-overBanner1,
@@ -33,6 +27,16 @@
 
       .MenuIcon-icon-line {
         background-color: white;
+      }
+
+      &.is-active {
+        &:focus {
+          outline: $cerulean dashed 1px;
+        }
+
+        .MenuIcon-icon-line {
+          background-color: $cerulean;
+        }
       }
     }
   }
@@ -61,79 +65,36 @@
       position: fixed;
       top: 0;
       right: 0;
-      height: 100%;
       width: 100%;
-      background-color: $cerulean;
+      height: 100vh;
+      font-family: $fontSecondary;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      background: $paleteal;
+      background: linear-gradient(white 0.5%, $paleteal, lightcyan);
+      overflow-y: scroll;
 
-      .NavigationMain-buttons {
-        margin-top: 60px;
-        padding: 0 7.5%;
-        text-align: right;
-
-        .NavigationMain-button {
-          all: unset;
-          cursor: pointer;
-          text-transform: uppercase;
-          color: white;
-          font-family: $fontPrimary;
-          font-size: 28px;
-          font-weight: 300;
-          margin-top: 30px;
-          border-bottom: $cerulean solid 1px;
-          border-bottom: transparent solid 1px;
-
-          &:focus,
-          &:hover,
-          &.is-on {
-            border-bottom: white solid 1px;
-          }
-
-          &:focus,
-          &:hover {
-            box-shadow: 0px 6px 2px -2px #24157122;
-          }
-        }
-
-        .NavigationSub {
-          position: relative;
-          height: 0;
-          overflow: hidden;
-          -webkit-transition: all 0.2s linear;
-             -moz-transition: all 0.2s linear;
-               -o-transition: all 0.2s linear;
-                  transition: all 0.2s linear;
-                  
-
-          .NavigationSub-links {            
-            padding: 0;
-            margin: 20px 0 0;
-  
-            li {
-              margin-top: 12px;
-  
-              a {
-                font-family: $fontPrimary;
-                font-size: 20px;
-                font-weight: 300;
-                letter-spacing: 1px;
-                color: white;
-
-                &:focus,
-                &:hover {
-                  border-bottom: white solid 1px;
-                }
-              }
-            }
-          }
-
-          &.is-on {
-            height: 156px;
-          }
-        }
+      &::-webkit-scrollbar {
+        width: 10px;
       }
+    
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 100px;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        border: 3px solid transparent;
+        border-radius: 100px;
+        background-color: seagreen;
+        background-clip: content-box;
+      }
+    
+      scrollbar-color: lightgreen transparent;
 
       .MenuIcon-container {
-        position: absolute;
+        position: fixed;
         top: 30px;
         left: calc(100% - 60px);
 
@@ -142,13 +103,53 @@
         }
       }
 
-      @include for-short-window-only {
-        height: 100vh;
-        border-bottom-right-radius: unset;
+      .SiteLinks {
+        padding-top: 35px;
+
+        &-navigation {
+          &-column {
+            h5 {
+              font-size: 13px;
+              color: $palered;
+              border-bottom: 1px solid lightgray;
+            }
+
+            ul {
+              li {
+                a {
+                  color: $cerulean;
+                }
+              }
+            }
+          }
+        }
       }
 
-      @include for-tablet-portrait-up {
-        max-width: 400px;
+      @include for-medium-window-up {
+        @include for-tablet-portrait-up {
+          max-width: 450px;
+        }
+      }
+
+      @include for-short-window-only {
+        @include for-tablet-landscape-up {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .SiteLinks {
+            display: flex;
+            padding-top: 0;
+
+            &-logo {
+              width: 25%;
+            }
+
+            &-navigation {
+              width: 75%;
+            }
+          }
+        }
       }
     }
   }

@@ -16,5 +16,6 @@ export { default as PlusIcon } from './PlusIcon';
 export { default as RightArrowIcon } from './RightArrowIcon';
 export { default as RootComponent } from './RootComponent';
 export { default as Select } from './Select';
+export { default as SiteLinks } from './SiteLinks';
 export { default as SliderCheckbox } from './SliderCheckbox';
 export { default as TextArea } from './TextArea';
