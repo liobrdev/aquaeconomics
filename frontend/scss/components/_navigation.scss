@@ -107,8 +107,14 @@
         width: 95%;
         margin: 0 auto;
 
+        &-logo {
+          padding: 0 10px;
+        }
+
         &-navigation {
           &-column {
+            padding: 10px;
+
             h5 {
               font-size: 13px;
               color: $palered;
@@ -116,6 +122,8 @@
             }
 
             ul {
+              margin: 0;
+
               li {
                 margin-bottom: 5px;
 
