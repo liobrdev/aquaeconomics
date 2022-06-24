@@ -11,7 +11,6 @@ export { default as Modal } from './Modal';
 export { default as NavBar } from './NavBar';
 export { default as NavigationIcon } from './NavigationIcon';
 export { default as NavigationMain } from './NavigationMain';
-export { default as NavigationSub } from './NavigationSub';
 export { default as PlusIcon } from './PlusIcon';
 export { default as RightArrowIcon } from './RightArrowIcon';
 export { default as RootComponent } from './RootComponent';
