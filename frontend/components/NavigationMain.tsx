@@ -50,6 +50,11 @@ class NavigationMain extends Component<Props> {
             />
           </div>
           <SiteLinks />
+          <button
+            className='HorizontalLine'
+            type='button'
+            onClick={this.handleClose}
+          />
         </div>
       </>
     );

@@ -19,16 +19,20 @@
     margin: 0 auto;
 
     &-navigation {
-      h5 {
-        font-size: 13px;
-        color: $palered;
-        border-bottom: 1px solid lightgray;
-      }
-
       ul {
         li {
           a {
             color: $cerulean;
+          }
+
+          &.is-big {
+            padding-top: 5px;
+            margin-bottom: 15px;
+
+            a {
+              font-size: 16.5px;
+              color: $palered;
+            }
           }
         }
       }

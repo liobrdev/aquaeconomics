@@ -30,16 +30,15 @@ export default function SiteLinks() {
       </div>
       <div className='SiteLinks-navigation'>
         <div className='SiteLinks-navigation-column'>
-          <h5>Services</h5>
           <ul>
-            <li>
-              <Link href={{ pathname: '/site_design' }}>
-                <a>Site Planning &amp; Design</a>
+            <li className='is-big'>
+              <Link href={{ pathname: '/civil_engineering' }}>
+                <a>Site Civil Engineering</a>
               </Link>
             </li>
             <li>
-              <Link href={{ pathname: '/surveying' }}>
-                <a>Land Surveying</a>
+              <Link href={{ pathname: '/site_design' }}>
+                <a>Site Planning &amp; Design</a>
               </Link>
             </li>
             <li>
@@ -55,11 +54,24 @@ export default function SiteLinks() {
           </ul>
         </div>
         <div className='SiteLinks-navigation-column'>
-          <h5>Company</h5>
           <ul>
-            <li>
-              <Link href={{ pathname: '/about' }}>
-                <a>About Us</a>
+            <li className='is-big'>
+              <Link href={{ pathname: '/surveying' }}>
+                <a>Land Surveying</a>
+              </Link>
+            </li>
+            <li className='is-big'>
+              <Link href={{ pathname: '/consulting' }}>
+                <a>Consulting</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className='SiteLinks-navigation-column'>
+          <ul>
+            <li className='is-big'>
+              <Link href={{ pathname: '/company'}}>
+                <a>Company</a>
               </Link>
             </li>
             <li>
@@ -68,8 +80,8 @@ export default function SiteLinks() {
               </Link>
             </li>
             <li>
-              <Link href={{ pathname: '/contact' }}>
-                <a>Contact</a>
+              <Link href={{ pathname: '/partners' }}>
+                <a>Partners</a>
               </Link>
             </li>
             <li>
@@ -77,29 +89,9 @@ export default function SiteLinks() {
                 <a>Careers</a>
               </Link>
             </li>
-          </ul>
-        </div>
-        <div className='SiteLinks-navigation-column'>
-          <h5>Follow us</h5>
-          <ul>
             <li>
-              <Link href='https://www.linkedin.com'>
-                <a>LinkedIn</a>
-              </Link>
-            </li>
-            <li>
-              <Link href='https://www.facebook.com'>
-                <a>Facebook</a>
-              </Link>
-            </li>
-            <li>
-              <Link href='https://www.instagram.com'>
-                <a>Instagram</a>
-              </Link>
-            </li>
-            <li>
-              <Link href='https://www.twitter.com'>
-                <a>Twitter</a>
+              <Link href={{ pathname: '/contact' }}>
+                <a>Contact</a>
               </Link>
             </li>
           </ul>
