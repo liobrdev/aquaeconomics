@@ -163,7 +163,7 @@ class Home extends Component<Props, State> {
                   stormwater management, zoning and municipal relations.
                   We take pride in solving problems <b>before</b> they occur.
                 </p>
-                <Link href={{ pathname: '/about' }}>
+                <Link href={{ pathname: '/company' }}>
                   <a>Learn more &#8594;</a>
                 </Link>
               </InViewWrapper>
