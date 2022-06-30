@@ -38,7 +38,7 @@ export default function SiteLinks() {
             </li>
             <li>
               <Link href={{ pathname: '/site_design' }}>
-                <a>Site Planning &amp; Design</a>
+                <a>Site Design &amp; Planning</a>
               </Link>
             </li>
             <li>

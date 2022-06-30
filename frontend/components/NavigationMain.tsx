@@ -9,6 +9,8 @@ import { AppDispatch, AppState } from '@/types';
 import { MenuIcon, SiteLinks } from './';
 
 
+const imagesUrl = process.env.NEXT_PUBLIC_IMAGES_URL || '';
+
 class NavigationMain extends Component<Props> {
   private component: RefObject<HTMLDivElement>;
 
@@ -41,7 +43,13 @@ class NavigationMain extends Component<Props> {
     return (
       <>
         <div className='NavigationMain-overlay' onClick={this.handleClose} />
-        <div className='NavigationMain is-on' ref={this.component}> 
+        <div className='NavigationMain is-on' ref={this.component}>
+          <img
+            className='LoadableMedia LoadableMedia--navigation'
+            id='navBgImg'
+            src={`${imagesUrl}/squares.png`}
+            alt=''
+          />
           <div className='MenuIcon-container'>
             <MenuIcon
               className='is-active'
@@ -51,7 +59,7 @@ class NavigationMain extends Component<Props> {
           </div>
           <SiteLinks />
           <button
-            className='HorizontalLine'
+            className='NavigationMain-line'
             type='button'
             onClick={this.handleClose}
           />

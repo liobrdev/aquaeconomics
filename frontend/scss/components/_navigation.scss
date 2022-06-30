@@ -72,7 +72,7 @@
       font-weight: 400;
       letter-spacing: 1px;
       background-color: white;
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-bottom: 30px;
 
       &::before {
@@ -86,7 +86,7 @@
         background-image: url(https://assets.aquaeconomics.liobr.dev/media/images/squares.png);
         background-repeat: no-repeat;
         background-size: cover;
-        opacity: 0.25;
+        opacity: 0.3;
       }
 
       &::-webkit-scrollbar {
@@ -160,15 +160,15 @@
         }
       }
 
-      .HorizontalLine {
+      .NavigationMain-line {
         all: unset;
-        position: absolute;
+        position: fixed;
         z-index: 5;
         left: calc(50% - 40px);
-        bottom: 20px;
+        bottom: calc(12.5vh + 20px);
         height: 12px;
         width: 80px;
-        border-bottom: 1px solid $cerulean;
+        border-bottom: 2px solid $cerulean;
         padding-top: 10px;
         opacity: 0.333;
 
@@ -178,7 +178,7 @@
 
         &:focus {
           border: 2px dashed crimson;
-          border-bottom: 1px solid $cerulean;
+          border-bottom: 2px solid $cerulean;
         }
       }
 
@@ -190,14 +190,20 @@
           &::before {
             height: 100vh;
           }
+
+          .NavigationMain-line {
+            position: absolute;
+            bottom: 20px;
+          }
         }
       }
 
       @include for-short-window-only {
         height: 100vh;
 
-        .HorizontalLine {
+        .NavigationMain-line {
           position: fixed;
+          bottom: 20px;
         }
         
         &::before {

@@ -180,7 +180,7 @@ class Home extends Component<Props, State> {
             </div>
             <div className='Services'>
               <div className='Services-text'>
-                <div className='Services-text-title'>Our services</div>
+                <div className='Services-text-title'>Our Services</div>
                 <h3>
                   Excellence and experience for an array of
                   civil engineering goals.
@@ -200,7 +200,7 @@ class Home extends Component<Props, State> {
                       <p>
                         Embracing all aspects of development, from site
                         evaluation and design, to permitting and construction
-                        management
+                        management.
                       </p>
                       <Link href={{ pathname: '/civil_engineering' }}>
                         <a>Learn more &#8594;</a>
@@ -220,8 +220,7 @@ class Home extends Component<Props, State> {
                       <h4>Land &amp; Site Surveying</h4>
                       <p>
                         Distinctly accurate surveying and mapping in service
-                        of efficient and cost-effective due diligence and
-                        analysis
+                        of cost-effective due diligence and analysis.
                       </p>
                       <Link href={{ pathname: '/surveying' }}>
                         <a>Learn more &#8594;</a>
