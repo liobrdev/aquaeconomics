@@ -143,12 +143,12 @@ export default function ContactForm() {
             <div className='ContactForm-servicesLabel'>Services Needed</div>
             <Input
               className='ContactForm-checkbox'
-              label='Site Planning &amp; Design'
+              label='Site Design &amp; Planning'
               name='site_design'
-              value='Site Planning and Design'
+              value='Site Design and Planning'
               type='checkbox'
               checked={form.services_needed.some(
-                s => s === 'Site Planning and Design'
+                s => s === 'Site Design and Planning'
               )}
               disabled={isSending}
               onChange={handleCheckbox()}
@@ -182,6 +182,16 @@ export default function ContactForm() {
               checked={form.services_needed.some(
                 s => s === 'Stormwater Bill Analysis'
               )}
+              disabled={isSending}
+              onChange={handleCheckbox()}
+            />
+            <Input
+              className='ContactForm-checkbox'
+              label='Consulting'
+              name='consulting'
+              value='Consulting'
+              type='checkbox'
+              checked={form.services_needed.some(s => s === 'Consulting')}
               disabled={isSending}
               onChange={handleCheckbox()}
             />
