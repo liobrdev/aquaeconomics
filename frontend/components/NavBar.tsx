@@ -53,7 +53,7 @@ class NavBar extends Component<Props, State> {
     if (this.state.banner2) {
       const { top, bottom } = this.state.banner2.getBoundingClientRect();
 
-      if (top <= 43 && bottom >= 67) {
+      if (top <= 43 && bottom >= 80) {
         this.setState({ isOverBanner2: true });
       } else this.setState({ isOverBanner2: false });
     }
