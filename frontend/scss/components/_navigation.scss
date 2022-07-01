@@ -66,9 +66,9 @@
       top: 0;
       right: 0;
       width: 100%;
-      height: 87.5vh;
+      height: 87.5%;
       font-family: $fontSecondary;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 1px;
       background-color: white;
@@ -82,7 +82,7 @@
         top: 0;
         right: 0;
         width: 100%;
-        height: 87.5vh;
+        height: 87.5%;
         background-image: url(https://assets.aquaeconomics.liobr.dev/media/images/squares.png);
         background-repeat: no-repeat;
         background-size: cover;
@@ -101,11 +101,11 @@
       &::-webkit-scrollbar-thumb {
         border: 3px solid transparent;
         border-radius: 100px;
-        background-color: $palered;
+        background-color: lightgreen;
         background-clip: content-box;
       }
     
-      scrollbar-color: $palered transparent;
+      scrollbar-color: lightgreen transparent;
 
       .MenuIcon-container {
         position: fixed;
@@ -165,7 +165,7 @@
         position: fixed;
         z-index: 5;
         left: calc(50% - 40px);
-        bottom: calc(12.5vh + 20px);
+        bottom: calc(12.5% + 20px);
         height: 12px;
         width: 80px;
         border-bottom: 2px solid $cerulean;
@@ -199,7 +199,7 @@
       }
 
       @include for-short-window-only {
-        height: 100vh;
+        height: 100%;
 
         .NavigationMain-line {
           position: fixed;
@@ -207,7 +207,7 @@
         }
         
         &::before {
-          height: 100vh;
+          height: 100%;
           background-position: right;
           position: fixed;
         }
