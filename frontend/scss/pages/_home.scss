@@ -358,22 +358,16 @@
     }
 
     &--testimonials {
-      &::before,
       &::after {
         content: "";
         display: block;
         position: absolute;
         height: 2px;
         width: 80px;
-        top: 0;
         bottom: 0;
         left: calc(50% - 40px);
         border-radius: 80px;
-        background-color: #D3D3D344;
-      }
-
-      &::after {
-        top: unset;
+        background-color: #DDDDDD44;
       }
 
       .Testimonials-content {
