@@ -77,7 +77,7 @@
 
       &::before {
         content: '';
-        position: absolute;
+        position: fixed;
         z-index: -5;
         top: 0;
         right: 0;
@@ -184,11 +184,12 @@
 
       @include for-medium-window-up {
         @include for-tablet-portrait-up {
-          height: 100vh;
+          height: 100%;
           max-width: 480px;
 
           &::before {
-            height: 100vh;
+            position: absolute;
+            height: 100%;
           }
 
           .NavigationMain-line {
